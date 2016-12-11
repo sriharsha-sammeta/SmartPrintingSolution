@@ -1,0 +1,17 @@
+=> Run the installer for Redmon17, which will install GhostScript and Redmon
+=> Go to PrintManagement [Run as Admin], and select {ComputerName} => Ports
+=> Right click and select add a new port. Select the port type as Redirected Port
+=> Enter the desired name as the name of the port followed by a colon. Now the port should be visible in the list of ports
+=> Click on printers within the same computer name, and select add new
+=> Use the option add a new printer using an existing port and specify the redirected port created just now
+=> For the driver, select Xerox Global Print Driver PS, if not present on the machine, download and add this driver
+=> Click continue, name the printer and share the printer on the network with the desired path
+
+The above steps will create the Virtual Printer and make it visible to everyone. To add the program hooks:
+=> Click on the newly created port, and select configure port
+=> In the file path that says "Redirect this port to the program" provide the path of the Virtual Printer executable hosted in the machine
+=> In the text box that says "Arguments for this program", provide the following as it is: "%u %d"
+=> For the output select "Program Handles Output". Note, on doing this the printer dropdown should be disabled
+=> For Run select "Hidden" and untick the "Run as User" checkbox
+=> Keep the shutdown delay to the specified value, and click Ok
+=> The virtual printer is now hooked with the backend

@@ -1,0 +1,73 @@
+﻿.dashboard-item-document-name {
+    margin-bottom: 10px;
+    float: left;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 10px;
+}
+
+.dashboard-item-dropdown {
+    margin-top: 14px;
+}
+
+.dashboard-item-dropdown-button{
+    margin-left: 14px;
+    border-radius: 10%;
+    background-color: #1CAF9A;
+    color: white;
+}
+
+.dashboard-item-dropdown-menu {
+    margin-right:30px
+}
+
+
+.dashboard-print-card-time-icon {
+    margin-right: 3px;
+}
+
+.dashboard-print-card-controls {
+    font-size: 16px;
+}
+
+.dashboard-print-card-controls  .trash-control {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.dashboard-print-card-controls .print-copies-label input {
+    width: 25px;
+    height: 20px;
+    font-size: 15px;
+}
+
+.dashboard-print-card-controls  .print-copies-label-text {
+    font-size: 15px;
+}
+
+.trustedzone-panel {
+    background-color: white;
+    align-content:center;
+    margin-top:15px;
+    font-size: 14px;
+    
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 0px 5px 5px 4px;
+  font-size: 22px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+  background-color: #1CAF9A;
+  color: white
+}
+
+.dashboard-item-delegates{
+     margin-bottom: 10px;
+    float: left;
+    font-size: 13px;
+    font-weight: 300;
+    padding: 5px 5px 5px 10px;
+}

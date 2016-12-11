@@ -1,0 +1,134 @@
+﻿<div class="row push-up-10">
+    <div class="col-md-4">
+
+        <h3>Queued</h3>
+
+        <div class="tasks" id="tasks">
+            <div class="task-item task-success" ng-repeat="doc in filterPrintJobs(allDocuments, 'Queued')">
+                <div class="row">
+                    <div class="dashboard-item-document-name col-md-10">{{doc.FileName}}</div>
+                    <div class="btn-group col-md-2 dashboard-item-dropdown dropdown">
+                        <button type="button" class="btn dropdown-toggle dashboard-item-dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Split button!</span>
+                        </button>
+                        <!--<i class="fa fa-caret-down fa-2x" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>-->
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#" ng-click="changeState(doc.FileName,1)">Move to Inactive</a></li>
+                            <li><a href="#" ng-click="open(doc.Id)">Delegate</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="task-footer">
+                    <div class="pull-left"><span class="fa fa-calendar dashboard-print-card-time-icon"></span>  {{getDate(doc.CreatedDateTime)}}</div>
+                    <div class="pull-right dashboard-print-card-controls">
+                        <span class="print-copies-label-text">
+                            Copies:
+                        </span>
+                        <span class="print-copies-label">
+                            <input type="text" value="{{doc.NumberOfCopies}}" disabled />
+                        </span>
+                        <span class="fa fa-minus-square" ng-click="decrement(doc.Id);"></span>
+                        <span class="fa fa-plus-square" ng-click="increment(doc.Id);"></span>
+
+                        <span class="fa fa-trash-o trash-control" data-docid="{{doc.id}}" ng-click="trashBtnClicked(doc);"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h3>Inactive</h3>
+        <div class="tasks" id="tasks_progreess">
+            <div class="task-item task-warning" ng-repeat="doc in filterPrintJobs(allDocuments, 'Pending')">
+                <div class="row">
+                    <div class="dashboard-item-document-name col-md-10">{{doc.FileName}}</div>
+                    <div class="btn-group col-md-2 dashboard-item-dropdown dropdown">
+                        <button type="button" class="btn dropdown-toggle dashboard-item-dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Split button!</span>
+                        </button>
+                        <!--<i class="fa fa-caret-down fa-2x" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>-->
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#" ng-click="changeState(doc.FileName,0)">Move to Queue</a></li>
+                            <li><a href="#" ng-click="open(doc.Id)">Delegate</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row dashboard-item-delegates" ng-if="doc.DelegatedTo!=null">
+                    <b>Delegated To: </b> {{doc.DelegatedTo}}
+                </div>
+                <div class="task-footer">
+                    <div class="pull-left"><span class="fa fa-calendar dashboard-print-card-time-icon"></span> {{getDate(doc.CreatedDateTime)}}</div>
+                    <div class="pull-right dashboard-print-card-controls">
+                        <span class="print-copies-label-text">
+                            Copies:
+                        </span>
+                        <span class="print-copies-label">
+                            <input type="text" value="{{doc.NumberOfCopies}}" disabled />
+                        </span>
+                        <span class="fa fa-minus-square" ng-click="decrement(doc.Id);"></span>
+                        <span class="fa fa-plus-square" ng-click="increment(doc.Id);"></span>
+
+                        <span class="fa fa-trash-o trash-control" data-docid="{{doc.id}}" ng-click="trashBtnClicked(doc);"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h3>Delegated</h3>
+        <div class="tasks" id="tasks_completed">
+            <div class="task-item task-danger" ng-repeat="doc in filterPrintJobs(allDocuments, 'Delegated')">
+                <div class="row">
+                    <div class="dashboard-item-document-name col-md-10">{{doc.FileName}}</div>
+                    <div class="btn-group col-md-2 dashboard-item-dropdown dropdown">
+                        <button type="button" class="btn dropdown-toggle dashboard-item-dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Split button!</span>
+                        </button>
+                        <!--<i class="fa fa-caret-down fa-2x" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>-->
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#" ng-click="changeState(doc.FileName,1)">Move to Inactive</a></li>
+                            <li><a href="#" ng-click="open(doc.Id)">Delegate</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row dashboard-item-delegates" ng-if="doc.DelegatedTo!=null">
+                    <b>Delegated To: </b> {{doc.DelegatedTo}}
+                </div>
+                <div class="task-footer">
+                    <div class="pull-left"><span class="fa fa-calendar dashboard-print-card-time-icon"></span> {{getDate(doc.CreatedDateTime)}}</div>
+                    <div class="pull-right dashboard-print-card-controls">
+                        <span class="print-copies-label-text">
+                            Copies:
+                        </span>
+                        <span class="print-copies-label">
+                            <input type="text" value="{{doc.NumberOfCopies}}" disabled />
+                        </span>
+                        <span class="fa fa-minus-square" ng-click="decrement(doc.Id);"></span>
+                        <span class="fa fa-plus-square" ng-click="increment(doc.Id);"></span>
+
+                        <span class="fa fa-trash-o trash-control" data-docid="{{doc.id}}" ng-click="trashBtnClicked(doc);"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Add Delegation</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="input-group">
+            <input type="text" class="form-control" ng-model="delegatedToAlias" placeholder="Alias" aria-describedby="basic-addon2">
+            <span class="input-group-addon" id="basic-addon2">@microsoft.com</span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Delegate</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>

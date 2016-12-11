@@ -1,0 +1,118 @@
+﻿<div>
+    <div class="container row" style="margin-left:150px">
+        <button class="btn btn-circle" ng-click="open()">+</button>
+    </div>
+
+    <div class="container bootstrap snippet ">
+        <h3> Requests </h3>
+        <div class="row trustedzone-panel">
+            <div class="col-lg-12">
+                <div class="main-box no-header clearfix">
+                    <div class="main-box-body clearfix">
+                        <div class="table-responsive">
+                            <table class="table user-list">
+                                <thead>
+                                    <tr>
+                                        <th><span>User</span></th>
+                                        <th class="text-center"><span>Status</span></th>
+                                        <th><span>Email</span></th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-repeat="delegateInvite in delegateInvites">
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="user-link">{{delegateInvite.UserName}}</a>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class='{{statusArray[delegateInvite.Status].class}}'>{{statusArray[delegateInvite.Status].status}}</span>
+                                        </td>
+                                        <td>
+                                            <a href="#">{{delegateInvite.UserName}}@microsoft.com</a>
+                                        </td>
+                                        <td style="width: 20%;">
+                                            <button type="button" class="btn btn-success" ng-click="changeDelegationState(delegateInvite.UserName,1)">Accept</button>
+                                            <button type="button" class="btn btn-danger" ng-click="changeDelegationState(delegateInvite.UserName,2)">Reject</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br /><br/>
+        <h3> Delegates </h3>
+        <div class="row trustedzone-panel">
+            <div class="col-lg-12">
+                <div class="main-box no-header clearfix">
+                    <div class="main-box-body clearfix">
+                        <div class="table-responsive">
+                            <table class="table user-list">
+                                <thead>
+                                    <tr>
+                                        <th><span>User</span></th>
+                                        <th class="text-center"><span>Status</span></th>
+                                        <th><span>Email</span></th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-repeat="delegate in delegates">
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="user-link">{{getTrustedUserName(delegate,user_name)}}</a>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class='{{statusArray[delegate.Status].class}}'>{{statusArray[delegate.Status].status}}</span>
+                                        </td>
+                                        <td>
+                                            <a href="#">{{getTrustedUserName(delegate,user_name)}}@microsoft.com</a>
+                                        </td>
+                                        <td style="width: 20%;">
+                                            <a href="#" class="table-link">
+                                                <span class="fa-stack">
+                                                    <i class="fa fa-square fa-stack-2x"></i>
+                                                    <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                            </a>
+                                            <a href="#" class="table-link">
+                                                <span class="fa-stack">
+                                                    <i class="fa fa-square fa-stack-2x"></i>
+                                                    <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                            </a>
+                                            <a href="#" class="table-link danger">
+                                                <span class="fa-stack">
+                                                    <i class="fa fa-square fa-stack-2x"></i>
+                                                    <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Add Delegate</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="input-group">
+            <input type="text" class="form-control" ng-model="delegatedToAlias" placeholder="Alias" aria-describedby="basic-addon2">
+            <span class="input-group-addon" id="basic-addon2">@microsoft.com</span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Add</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>

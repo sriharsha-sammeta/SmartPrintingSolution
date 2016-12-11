@@ -1,0 +1,29 @@
+{
+  "name": "smartprinting",
+  "description": "UI for the SmartPrinting IoT project.",
+  "main": "index.html",
+  "keywords": [
+    "spartprinting",
+    "iot"
+  ],
+  "authors": [
+    "vaishak rajiv sai sriharsha"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "adal-angular": "^1.0.11",
+    "angular-bootstrap": "^2.2.0",
+    "ngToast": "ngtoast#^2.0.0",
+    "angular-animate": "^1.5.8"
+  }
+}

@@ -1,0 +1,39 @@
+﻿<div class="container bootstrap snippet ">
+    <h3> Archives </h3>
+    <div class="row trustedzone-panel">
+        <div class="col-lg-12">
+            <div class="main-box no-header clearfix">
+                <div class="main-box-body clearfix">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                    <th><span>File Name</span></th>
+                                    <th class="text-center"><span>Number Of Copies</span></th>
+                                    <th><span>Delegated By</span></th>
+                                    <th>Printed On</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="printJob in printJobs">
+                                <tr>
+                                    <td>
+                                        {{printJob.FileName}}
+                                    </td>
+                                    <td class="text-center">
+                                        {{printJob.NumberOfCopies}}
+                                    </td>
+                                    <td>
+                                        {{printJob.DelegatedBy}}
+                                    </td>
+                                    <td>
+                                        {{getDate(printJob.PrintedOn)}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

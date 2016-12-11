@@ -1,4 +1,4 @@
-# SmartPrintingSolution
+# Smart-Printing Solution
 Cloud based Smart printing solution secured with Employee-ID card 
 
 #Feature

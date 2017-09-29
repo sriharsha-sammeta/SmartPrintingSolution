@@ -1,5 +1,5 @@
 # Smart-Printing Solution
-Cloud based Smart printing solution secured with Employee-ID card 
+Cloud based Smart-Printing solution secured with Employee-ID card 
 
 #Feature
 1. It allows you to host one centralized virtual printer driver capable of receiving the print commands
